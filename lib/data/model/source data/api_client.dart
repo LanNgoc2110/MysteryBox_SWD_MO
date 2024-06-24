@@ -5,8 +5,11 @@ import '../../../utilities/constants/api_constants.dart';
 import '../auth/auth_login.dart';
 import '../home/package_response.dart';
 import '../my_stery_box/mystery_box_response.dart';
+import '../order_package/order_package.dart';
+import '../order_package/order_response.dart';
 import '../package_themes/theme_response.dart';
 import '../profile/profile_response.dart';
+import '../profile/theme_id_model.dart';
 import '../sign_in/user.dart';
 import '../sign_up/user_request.dart';
 
@@ -18,14 +21,18 @@ abstract class ApiClient {
     Dio dio, {
     String? authToken,
   }) {
-    dio.interceptors.add(InterceptorsWrapper(
-      onRequest: (options, handler) {
-        if (authToken != null) {
-          options.headers['Authorization'] = 'Bearer $authToken';
-        }
-        return handler.next(options);
-      },
-    ));
+    dio
+      ..options.connectTimeout = const Duration(minutes: 1) 
+      ..options.receiveTimeout = const Duration(minutes: 1)
+      ..options.sendTimeout = const Duration(minutes: 1)
+      ..interceptors.add(InterceptorsWrapper(
+        onRequest: (options, handler) {
+          if (authToken != null) {
+            options.headers['Authorization'] = 'Bearer $authToken';
+          }
+          return handler.next(options);
+        },
+      ));
     return _ApiClient(dio);
   }
 
@@ -55,5 +62,17 @@ abstract class ApiClient {
   @POST(ApiConstants.userRegister)
   Future<AuthLogin> postRegister(
     @Body() UserRequest userRequest,
+  );
+
+  @POST(ApiConstants.addOrderPackage)
+  Future<OrderResponse> addOrderPackage(
+    // @Path('packageId') String packageId,
+    @Body() OrderPackage orderPackage,
+  );
+
+  @PUT(ApiConstants.updateProfile)
+  Future<void> updateProfile(
+    @Path('kidId') int kidId,
+    @Body() ThemeIdModel themeId,
   );
 }

@@ -1,3 +1,13 @@
+// import 'package:swd_app_mobile/ui/feature/detail/detail.dart';
+// import 'package:swd_app_mobile/ui/feature/home/home.dart';
+// import 'package:swd_app_mobile/ui/feature/pay/pay.dart';
+// import 'package:swd_app_mobile/ui/feature/primary/primary.dart';
+// import 'package:swd_app_mobile/ui/feature/profile/profile.dart';
+// import 'package:swd_app_mobile/ui/feature/sign_in/sign_in.dart';
+// import 'package:swd_app_mobile/ui/feature/pay/pay.dart';
+// import 'package:swd_app_mobile/ui/feature/primary/primary.dart';
+// import 'package:swd_app_mobile/ui/feature/sign_in/sign_in.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -7,7 +17,6 @@ import 'ui/feature/primary/primary.dart';
 import 'ui/feature/sign_in/sign_in.dart';
 import 'ui/feature/sign_up/sign_up_screen.dart';
 import 'utilities/helpers/app_helper/app_flavor_helper.dart';
-// import 'ui/feature/cart/cart.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,8 +41,6 @@ class MyApp extends StatelessWidget {
         builder: EasyLoading.init(),
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        // theme: getAppTheme(Brightness.light),
-        // darkTheme: getAppTheme(Brightness.dark),
         home: SignIn());
   }
 }

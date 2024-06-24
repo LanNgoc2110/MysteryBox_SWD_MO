@@ -24,28 +24,43 @@ class ButtonLogin extends StatelessWidget {
       bloc: signInPresenter,
       builder: (context, state) => GestureDetector(
         onTap: () async {
-          await EasyLoading.show(
-              maskType: EasyLoadingMaskType.black, dismissOnTap: false);
-
           /// Nếu email hoặc password rỗng thì hiển thị thông báo
           if (state.userName.isEmpty || state.password.isEmpty) {
             return showToast('vui lòng nhập email và mật khẩu của bạn');
           } else {
-            await signInPresenter.onTapSignIn();
-            if (signInPresenter.state.token == null) {
-              await signInPresenter.callBack(showToast);
-            } else {
-              signInPresenter.addToken();
+            await EasyLoading.show(
+                maskType: EasyLoadingMaskType.black, dismissOnTap: false);
 
-              await EasyLoading.dismiss();
-
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Primary(),
-                ),
-              );
-            }
+            await signInPresenter.onTapSignIn(
+              onSuccessCallBack: () async {
+                await EasyLoading.dismiss();
+                return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Primary(),
+                  ),
+                );
+              },
+              onErrorCallBack: (error) async {
+                await EasyLoading.dismiss();
+                return Future.delayed(
+                  const Duration(seconds: 1),
+                  () {
+                    if (error.statusCode == 401) {
+                      return Fluttertoast.showToast(
+                        msg:
+                            error.message ?? 'Lỗi đăng nhập, vui lòng thử lại!',
+                        toastLength: Toast.LENGTH_SHORT,
+                      );
+                    }
+                    return Fluttertoast.showToast(
+                      msg: error.message ?? 'Lỗi đăng nhập, vui lòng thử lại!',
+                      toastLength: Toast.LENGTH_SHORT,
+                    );
+                  },
+                );
+              },
+            );
           }
         },
         child: Container(
