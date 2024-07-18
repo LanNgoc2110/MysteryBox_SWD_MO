@@ -27,9 +27,15 @@ class _CommonDateTimeState extends State<CommonDateTime> {
       helpText: '',
       initialEntryMode: DatePickerEntryMode.calendarOnly,
       context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
+      initialDate: DateTime.now().subtract(
+        const Duration(days: 365 * 3),
+      ),
+      firstDate: DateTime.now().subtract(
+        const Duration(days: 365 * 15),
+      ),
+      lastDate: DateTime.now().subtract(
+        const Duration(days: 365 * 3),
+      ),
     );
     if (pickedDate != null) {
       widget.onChanged?.call(pickedDate);
@@ -60,7 +66,7 @@ class _CommonDateTimeState extends State<CommonDateTime> {
       controller: widget.controller,
       decoration: InputDecoration(
         suffixIcon: const Icon(Icons.date_range),
-        hintText: 'YYY-MM-DD',
+        hintText: 'YYYY-MM-DD',
         border: inputBorder,
         focusedBorder: inputBorder,
         enabledBorder: inputBorder,

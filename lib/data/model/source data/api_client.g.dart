@@ -114,6 +114,33 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<KidResponse> getChooseProfile() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<KidResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/v1/get-choose-profiles',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = KidResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<MysteryBoxResponse> getMysteryBox() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -214,7 +241,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/api/v1/add-order-package/5',
+              '/api/v1/add-order-package/${packageId}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -260,7 +287,8 @@ class _ApiClient implements ApiClient {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = userRequest;
+    final _data = <String, dynamic>{};
+    _data.addAll(userRequest.toJson());
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<ProfileResponse>(Options(
       method: 'POST',
@@ -306,6 +334,34 @@ class _ApiClient implements ApiClient {
               baseUrl,
             ))));
     final value = OrderPackageByUserResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<PaymentResponse> createPayment(AmountModel amount) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(amount.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<PaymentResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/v1/create-payment',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaymentResponse.fromJson(_result.data!);
     return value;
   }
 

@@ -121,11 +121,7 @@ class _KidsCreateScreenState extends BasePageState<KidsCreateScreen> {
                           },
                           title: 'Choose Color',
                           list: const <String>[
-                            'Màu đỏ',
-                            'Màu cam',
-                            'Màu đen',
-                            'Màu xanh lá',
-                            'Màu xanh dương'
+                            "Red", "Orange", "Black", "White", "Green", "Blue", "Yellow", "Purple", "Pink", "Brown", "Grey"
                           ],
                           hintText: 'Color',
                         ),
@@ -154,14 +150,7 @@ class _KidsCreateScreenState extends BasePageState<KidsCreateScreen> {
                           },
                           title: 'Choose Material',
                           list: const <String>[
-                            'Wood',
-                            'Glass',
-                            'Plastic',
-                            'Aluminium',
-                            'Copper',
-                            'Steel',
-                            'Cloth',
-                            'Rubber',
+                            "Plastic", "Wood", "Metal", "Fabric", "Rubber", "Paper", "Foam", "Silicone"
                           ],
                           hintText: 'Material',
                         ),
@@ -171,13 +160,7 @@ class _KidsCreateScreenState extends BasePageState<KidsCreateScreen> {
                           },
                           title: 'Choose Type',
                           list: const <String>[
-                            'Toys',
-                            'Robot',
-                            'Doll',
-                            'Drum',
-                            'Car',
-                            'Balloon',
-                            'Train',
+                            "Action Figures", "Dolls", "Building Blocks", "Board Games", "Stuffed Animals", "Educational Toys", "Puzzles", "Remote Control Toys"
                           ],
                           hintText: 'Type',
                         ),
@@ -193,13 +176,7 @@ class _KidsCreateScreenState extends BasePageState<KidsCreateScreen> {
                       width: MediaQuery.of(context).size.width - 40,
                       title: 'Choose origin',
                       list: const <String>[
-                        'Trung quốc',
-                        'Hàn quốc',
-                        'Mỹ',
-                        'Đài loan',
-                        'Việt nam',
-                        'Thái lan',
-                        'Singapore',
+                        "Canada", "China", "Japan", "Korea", "Singapore", "Taiwan", "Thailand", "USA", "Vietnam"
                       ],
                       hintText: 'Made In',
                     ),
@@ -210,7 +187,7 @@ class _KidsCreateScreenState extends BasePageState<KidsCreateScreen> {
                       onTap: () {
                         _createKid();
                       },
-                      title: 'Sign Up',
+                      title: 'Create Kid',
                     ),
                     const SizedBox(height: 40),
                   ],

@@ -79,28 +79,33 @@ class _PaySuccessState extends State<PaySuccessScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ButtonCommon(
-                    txt: 'Hủy Đơn Hàng',
-                    onTap: () {},
-                    colorButton: AppColors.primaryButton2,
-                    colorText: AppColors.white,
-                    colorBorder: AppColors.primaryButton2,
-                    width: 160,
-                  ),
-                  ButtonCommon(
-                    txt: 'Xem chi tiết đơn hàng',
+                    txt: 'Quay về Home',
                     onTap: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const OrdersScreen(),
-                        ),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Primary()));
                     },
                     colorButton: AppColors.primaryButton2,
                     colorText: AppColors.white,
                     colorBorder: AppColors.primaryButton2,
                     width: 160,
                   ),
+                  // ButtonCommon(
+                  //   txt: 'Xem chi tiết đơn hàng',
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => const OrdersScreen(),
+                  //       ),
+                  //     );
+                  //   },
+                  //   colorButton: AppColors.primaryButton2,
+                  //   colorText: AppColors.white,
+                  //   colorBorder: AppColors.primaryButton2,
+                  //   width: 160,
+                  // ),
                 ],
               )
             ],

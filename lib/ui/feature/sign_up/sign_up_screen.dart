@@ -67,11 +67,11 @@ class _SignUpScreenState extends BasePageState<SignUpScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('User Name'),
+                    const Text('Username'),
                     const SizedBox(height: 10),
                     // Ô Nhập user name
                     CommonTextInput(
-                      hintText: 'Enter your user name',
+                      hintText: 'Enter your username',
                       textEditingController: textEditingControllerUserName,
                       onChanged: (value) {
                         _signUpPresenter.inputUserName(value);

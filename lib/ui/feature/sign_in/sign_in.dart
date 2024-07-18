@@ -65,14 +65,14 @@ class _SignInState extends State<SignIn> {
                 const Row(
                   children: [
                     Spacer(),
-                    Text(
-                      AppTexts.forgotPassword,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        color: AppColors.blue,
-                      ),
-                    ),
+                    // Text(
+                    //   AppTexts.forgotPassword,
+                    //   style: TextStyle(
+                    //     fontSize: 14,
+                    //     fontWeight: FontWeight.w300,
+                    //     color: AppColors.blue,
+                    //   ),
+                    // ),
                   ],
                 ),
                 const SizedBox(height: 15),
@@ -84,30 +84,30 @@ class _SignInState extends State<SignIn> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
-                          '-----------------  Or sign up with  -----------------'),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/icons/google logo.svg'),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            AppTexts.google,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
+                      // const Text(
+                      //     '-----------------  Or sign up with  -----------------'),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     SvgPicture.asset('assets/icons/google logo.svg'),
+                      //     const SizedBox(
+                      //       width: 10,
+                      //     ),
+                      //     const Text(
+                      //       AppTexts.google,
+                      //       style: TextStyle(
+                      //         fontWeight: FontWeight.w700,
+                      //         fontSize: 20,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 24,
+                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
